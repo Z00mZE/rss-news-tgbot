@@ -3,19 +3,28 @@ package bot
 import (
 	"context"
 	"log/slog"
+
+	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/domain/service"
 )
 
 type Application struct {
-	ctx    context.Context
-	logger *slog.Logger
+	ctx           context.Context
+	logger        *slog.Logger
+	publishWorker service.PublishWorker
 }
 
-func NewApplication(ctx context.Context, logger *slog.Logger) *Application {
-	return &Application{ctx: ctx, logger: logger}
+func NewApplication(ctx context.Context, publishWorker service.PublishWorker, logger *slog.Logger) *Application {
+	return &Application{
+		ctx:           ctx,
+		logger:        logger,
+		publishWorker: publishWorker,
+	}
 }
 
 func (a *Application) Run() {
 	a.logger.Info("start")
+	a.publishWorker.Start(a.ctx)
+
 loop:
 	for {
 		select {

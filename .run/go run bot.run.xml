@@ -1,15 +1,17 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="go run bot" type="GoApplicationRunConfiguration" factoryName="Go Application">
-    <module name="rss-news-tgbot" />
-    <working_directory value="$PROJECT_DIR$" />
-    <envs>
-      <env name="TELEGRAM_TOKEN" value="6864906483:AAFtZB4Gz5na2phkATNwn0mlQ-a70QfKeVw" />
-      <env name="LOG_LEVEL" value="dev" />
-    </envs>
-    <kind value="PACKAGE" />
-    <package value="github.com/Z00mZE/rss-news-tgbot/cmd/bot" />
-    <directory value="$PROJECT_DIR$" />
-    <filePath value="$PROJECT_DIR$/cmd/bot/main.go" />
-    <method v="2" />
-  </configuration>
+    <configuration default="false" name="go run bot" type="GoApplicationRunConfiguration" factoryName="Go Application">
+        <module name="rss-news-tgbot"/>
+        <working_directory value="$PROJECT_DIR$"/>
+        <envs>
+            <env name="BOT_TELEGRAM_TOKEN" value="6864906483:AAFtZB4Gz5na2phkATNwn0mlQ-a70QfKeVw"/>
+            <env name="BOT_TELEGRAM_CHANNEL_ID" value="-1002079598814"/>
+            <env name="BOT_LOG_LEVEL" value="dev"/>
+            <env name="BOT_publisher_interval" value="30s"/>
+        </envs>
+        <kind value="PACKAGE"/>
+        <package value="github.com/Z00mZE/rss-news-tgbot/cmd/bot"/>
+        <directory value="$PROJECT_DIR$"/>
+        <filePath value="$PROJECT_DIR$/cmd/bot/main.go"/>
+        <method v="2"/>
+    </configuration>
 </component>

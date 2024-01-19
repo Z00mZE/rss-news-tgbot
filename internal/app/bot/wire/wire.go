@@ -11,6 +11,9 @@ import (
 	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot"
 	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/config"
 	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/pkg/logger"
+	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/provider/publisher"
+	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/repository/article"
+	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/service/pubslihworker"
 )
 
 func InitApplication(ctx context.Context) (*bot.Application, func(), error) {
@@ -20,6 +23,9 @@ func InitApplication(ctx context.Context) (*bot.Application, func(), error) {
 				bot.NewApplication,
 				config.NewConfig,
 				logger.WireSet,
+				publisher.WireSet,
+				pubslihworker.WireSet,
+				article.WireSet,
 			),
 		),
 	)
