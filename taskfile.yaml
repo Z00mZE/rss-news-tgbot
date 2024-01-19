@@ -1,0 +1,55 @@
+version: "3"
+
+env:
+  GOMODULE: github.com/Z00mZE/rss-news-tgbot
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  install-wire:
+    internal: true
+    desc: "Installation Wire dependency injection."
+    cmds:
+      - go install github.com/google/wire/cmd/wire@latest
+
+  install-utils:
+    desc: "Installation utility packages"
+    cmds:
+      - task: install-wire
+
+  upgrade:
+    desc: "Обновление пакетов приложения"
+    aliases:
+      - up
+    cmds:
+      - go get -u all
+      - go mod download
+      - go mod tidy
+      - task:  install-utils
+      - task:  aiog
+
+  wire-generate:
+    aliases:
+      - wg
+    desc: wire di codegen
+    cmds:
+      - wire gen ./...
+
+  all-in-one-gen:
+    desc: full code generation
+    aliases:
+      - aiog
+    cmds:
+      - task: wg
+
+  lint:
+    desc: "Запуск линтера"
+    cmds:
+      - golangci-lint run  -v
+
+  lint-fix:
+    desc: "Запуск линтера с авто-исправлением предупреждений"
+    cmds:
+      - golangci-lint run -v --fix
