@@ -14,9 +14,14 @@ type Telegram struct {
 type Publisher struct {
 	Interval time.Duration `envconfig:"interval" default:"1m"`
 }
+type Telegraph struct {
+	AccessToken string `envconfig:"ACCESS_TOKEN" required:"true"`
+}
+
 type Config struct {
 	Telegram  Telegram  `envconfig:"telegram"`
 	Publisher Publisher `envconfig:"publisher"`
+	Telegraph Telegraph `envconfig:"Telegraph"`
 	LogLevel  string    `envconfig:"log_level" default:"prod"`
 }
 

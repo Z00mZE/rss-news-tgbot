@@ -5,6 +5,7 @@
         <envs>
             <env name="BOT_TELEGRAM_TOKEN" value="6864906483:AAFtZB4Gz5na2phkATNwn0mlQ-a70QfKeVw"/>
             <env name="BOT_TELEGRAM_CHANNEL_ID" value="-1002079598814"/>
+            <env name="BOT_TELEGRAPH_ACCESS_TOKEN" value="db47eef4974e0d4df25cbb31d3d9617341f2b3f21f267b153513e6c58ba7"/>
             <env name="BOT_LOG_LEVEL" value="dev"/>
             <env name="BOT_publisher_interval" value="30s"/>
         </envs>

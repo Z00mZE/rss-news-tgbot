@@ -19,14 +19,12 @@ import (
 func InitApplication(ctx context.Context) (*bot.Application, func(), error) {
 	panic(
 		wire.Build(
-			wire.NewSet(
-				bot.NewApplication,
-				config.NewConfig,
-				logger.WireSet,
-				publisher.WireSet,
-				pubslihworker.WireSet,
-				article.WireSet,
-			),
+			bot.NewApplication,
+			config.NewConfig,
+			logger.WireSet,
+			publisher.WireSet,
+			pubslihworker.WireSet,
+			article.WireSet,
 		),
 	)
 	return new(bot.Application), nil, nil

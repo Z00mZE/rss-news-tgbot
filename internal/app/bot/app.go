@@ -4,6 +4,8 @@ import (
 	"context"
 	"log/slog"
 
+	"github.com/Z00mZE/telegraph-api"
+
 	"github.com/Z00mZE/rss-news-tgbot/internal/app/bot/domain/service"
 )
 
@@ -11,6 +13,7 @@ type Application struct {
 	ctx           context.Context
 	logger        *slog.Logger
 	publishWorker service.PublishWorker
+	telegraph     *telegraph.Telegraph
 }
 
 func NewApplication(ctx context.Context, publishWorker service.PublishWorker, logger *slog.Logger) *Application {
@@ -18,6 +21,7 @@ func NewApplication(ctx context.Context, publishWorker service.PublishWorker, lo
 		ctx:           ctx,
 		logger:        logger,
 		publishWorker: publishWorker,
+		telegraph:     telegraph.NewTelegraphAPI(""),
 	}
 }
 
